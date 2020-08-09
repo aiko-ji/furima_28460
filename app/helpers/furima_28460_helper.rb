@@ -1,0 +1,2 @@
+module Furima28460Helper
+end
