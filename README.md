@@ -1,24 +1,55 @@
-# README
+	# テーブル設計
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## users テーブル
 
-Things you may want to cover:
+| Column          | Type   | Options     |
+| ----------------| ------ | ----------- |
+| nickname        | string | null: false |
+| email           | string | null: false |
+| password        | string | null: false |
+| first name      | string | null: false |
+| last name       | string | null: false |
+| birth date      | string | null: false |
 
-* Ruby version
+### Association
+- belongs_to :users
+- belongs_to :product
 
-* System dependencies
 
-* Configuration
+## product テーブル
 
-* Database creation
+| Column          | Type   | Options     |
+| ----------------| ------ | ----------- |
+| product name    | string | null: false |
+| category        | string | null: false |
+| price           | string | null: false |
+| exhibitor       | string | null: false |
 
-* Database initialization
 
-* How to run the test suite
+## purchase テーブル
 
-* Services (job queues, cache servers, search engines, etc.)
+| Column              | Type   | Options     |
+| ----------------    | ------ | ----------- |
+| first name          | string | null: false |
+| last name           | string | null: false |
+| address             | string | null: false |
+| method of payment   | string | null: false |
 
-* Deployment instructions
 
-* ...
+
+## comments テーブル
+
+| Column          | Type       | Options                        |
+| ----------------| ---------- | ------------------------------ |
+| user            | references | null: false, foreign_key: true |
+| product         | references | null: false, foreign_key: true |
+| purchase        | references | null: false, foreign_key: true |
+| product         | references | null: false, foreign_key: true |
+
+
+##  messages テーブル
+
+| Column           | Type       | Options                        |
+| -----------------| ---------- | ------------------------------ |
+| user             | string     | null: false                    |
+| text             | references | null: false, foreign_key: true |
