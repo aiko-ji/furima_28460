@@ -4,14 +4,14 @@
 
 | Column               | Type   | Options     |
 | ----------------     | ------ | ----------- |
-| nickname             | string | null: false |
-| email                | string | null: false |
-| password             | string | null: false |
-| first name           | string | null: false |
-| last name            | string | null: false |
-| yyyy-mm-dd           | string | null: false |
-| phonetic first name  | string | null: false |
-| phonetic last name   | string | null: false |
+| nickname             | string | null: false, foreign_key: true|
+| email                | string | null: false, foreign_key: true|
+| password             | string | null: false, foreign_key: true|
+| first_name           | string | null: false, foreign_key: true|
+| last_name            | string | null: false, foreign_key: true|
+| birthday             | date   | null: false, foreign_key: true|
+| phonetic_first_name  | string | null: false, foreign_key: true|
+| phonetic_last_name   | string | null: false, foreign_key: true|
 
 
 ### Association
@@ -21,26 +21,23 @@
 
 ## product テーブル
 
-| Column              | Type   | Options     |
-| ----------------    | ------ | ----------- |
-| product name        | string | null: false |
-| category            | string | null: false |
-| commodity condition | string | null: false |
-| price               | string | null: false |
-| exhibitor           | string | null: false |
-| shipping charges    | string | null: false |
-| area of delivery    | string | null: false |
-| days until delivery | string | null: false |
-| description of item | string | null: false |
+| Column              | Type    | Options     |
+| ----------------    | ------  | ----------- |
+| name                | string  | null: false |
+| category            | string  | null: false |
+| commodity_condition | string  | null: false |
+| price               | integer | null: false |
+| exhibitor           | string  | null: false |
+| description         | text    | null: false |
 
 
 
 ## purchase テーブル
 
-| Column              | Type   | Options     |
-| ----------------    | ------ | ----------- |
-| user_id             | string | null: false |
-| product_id          | string | null: false |
+| Column              | Type       | Options                       |
+| ----------------    | ---------- | ----------------------------- |
+| user_id             | references | null: false, foreign_key: true|
+| product_id          | references | null: false, foreign_key: true|
 
 
 ### Association
@@ -50,19 +47,14 @@
 
 ## user_address テーブル
 
-| Column              | Type   | Options     |
-| ----------------    | ------ | ----------- |
-| first name          | string | null: false |
-| last name           | string | null: false |
-| address             | string | null: false |
-| municipalities      | string | null: false |
-| building number     | string | null: false |
-| prefecture          | string | null: false |
-| user_id             | string | null: false |
-| product_id          | string | null: false |
-| phonetic first name | string | null: false |
-| phonetic last name  | string | null: false |
-| method of payment   | string | null: false |
+| Column              | Type   | Options                       |
+| ----------------    | ------ | ----------------------------- |
+| address             | string | null: false, foreign_key: true|
+| municipalities      | string | null: false, foreign_key: true|
+| building_number     | string | foreign_key: true             |
+| prefecture          | string | null: false, foreign_key: true|
+| user_id             | string | null: false, foreign_key: true|
+| product_id          | string | null: false, foreign_key: true|
 
 
 ## comments テーブル
@@ -79,5 +71,5 @@
 
 | Column           | Type       | Options                        |
 | -----------------| ---------- | ------------------------------ |
-| user             | string     | null: false                    |
+| user             | string     | null: false, foreign_key: true |
 | text             | references | null: false, foreign_key: true |
