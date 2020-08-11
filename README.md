@@ -47,6 +47,10 @@
 | phonetic first name | string | null: false |
 | phonetic last name  | string | null: false |
 
+### Association
+- belongs_to :purchase
+- belongs_to :user_address
+
 
 ## user_address テーブル
 
