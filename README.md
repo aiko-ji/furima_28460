@@ -9,7 +9,7 @@
 | password             | string | null: false |
 | first name           | string | null: false |
 | last name            | string | null: false |
-| birthday             | string | null: false |
+| yyyy-mm-dd           | string | null: false |
 | phonetic first name  | string | null: false |
 | phonetic last name   | string | null: false |
 
@@ -31,6 +31,7 @@
 | shipping charges    | string | null: false |
 | area of delivery    | string | null: false |
 | days until delivery | string | null: false |
+| description of item | string | null: false |
 
 
 
@@ -38,14 +39,9 @@
 
 | Column              | Type   | Options     |
 | ----------------    | ------ | ----------- |
-| first name          | string | null: false |
-| last name           | string | null: false |
-| address             | string | null: false |
-| method of payment   | string | null: false |
 | user_id             | string | null: false |
 | product_id          | string | null: false |
-| phonetic first name | string | null: false |
-| phonetic last name  | string | null: false |
+
 
 ### Association
 - belongs_to :purchase
@@ -66,6 +62,7 @@
 | product_id          | string | null: false |
 | phonetic first name | string | null: false |
 | phonetic last name  | string | null: false |
+| method of payment   | string | null: false |
 
 
 ## comments テーブル
