@@ -17,7 +17,6 @@
 ### Association
 - has_many : purchase
 - has_one :product
-- has_one :user_address
 
 ## product テーブル
 
@@ -30,6 +29,9 @@
 | exhibitor           | string      | null: false                       |
 | description         | text        | null: false                       |
 | user_id             | integer     | null: false, foreign_key: true    |
+| shipping charges    | string      | null: false                       |
+| area of delivery    | string      | null: false                       |
+| days until delivery | string      | null: false                       |
 
 ### Association
 - belongs_to :users
@@ -38,10 +40,10 @@
 
 ## purchase テーブル
 
-| Column              | Type       | Options                        |
-| ------------------- | ---------- | ----------------------------- -|
-| user_id             | references | null: false, foreign_key: true |
-| product_id          | references | null: false, foreign_key: true | 
+| Column              | Type       | Options                               |
+| ------------------- | ---------- | ------------------------------------- |
+| user_id             | references | integer :user_id, foreign_key: true   |
+| product_id          | references | integer :product_id, foreign_key: true| 
 
 
 ### Association
@@ -54,14 +56,13 @@
 | Column              | Type   | Options                                 |
 | ------------------- | ------ | --------------------------------------- |
 | address             | string | null: false                             |
+| postal code         | string | null: false                             |
 | municipalities      | string | null: false                             |
 | building_number     | string | null: false                             |
 | prefecture          | string | null: false                             |
 | user_id             | string | integer :user_id, foreign_key: true     |
 | product_id          | string | integer :product_id, foreign_key: true  |
-| shipping charges    | string | null: false                             |
-| area of delivery    | string | null: false                             |
-| days until delivery | string | null: false                             |
+
 
 ### Association
 - has_one :purchase
