@@ -45,7 +45,7 @@
 
 
 ### Association
-- has_one :product_information
+- has_one :product
 - has_one :user_address
 - belongs_to :users
 
