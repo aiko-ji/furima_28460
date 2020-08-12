@@ -15,9 +15,9 @@
 
 
 ### Association
-- has_many :users
-- has_many :product
-- has_many :user_address
+- has_many : purchase
+- has_one :product
+- has_one :user_address
 
 ## product テーブル
 
@@ -29,7 +29,7 @@
 | price               | integer     | null: false                       |
 | exhibitor           | string      | null: false                       |
 | description         | text        | null: false                       |
-| integer_user_id     | string      | null: false, foreign_key: true    |
+| user_id             | integer     | null: false, foreign_key: true    |
 
 ### Association
 - belongs_to :users
@@ -45,7 +45,7 @@
 
 
 ### Association
-- has_one :purchase
+- has_one :product_information
 - has_one :user_address
 - belongs_to :users
 
@@ -53,27 +53,20 @@
 
 | Column              | Type   | Options                                 |
 | ------------------- | ------ | --------------------------------------- |
-| address             | string | null: false, foreign_key: true          |
-| municipalities      | string | null: false, foreign_key: true          |
-| building_number     | string | foreign_key: true                       |
-| prefecture          | string | null: false, foreign_key: true          |
+| address             | string | null: false                             |
+| municipalities      | string | null: false                             |
+| building_number     | string | null: false                             |
+| prefecture          | string | null: false                             |
 | user_id             | string | integer :user_id, foreign_key: true     |
 | product_id          | string | integer :product_id, foreign_key: true  |
+| shipping charges    | string | null: false                             |
+| area of delivery    | string | null: false                             |
+| days until delivery | string | null: false                             |
 
 ### Association
 - has_one :purchase
 - has_one :user_address
 - belongs_to :users
-
-## product_information
-
-| Column              | Type   | Options                           |
-| ------------------- | ------ | --------------------------------- |
-| shipping charges    | string | null: false                       |
-| area of delivery    | string | null: false                       |
-| days until delivery | string | null: false                       |
-
-### Association
 - belongs_to :product
 
 ## comments テーブル
