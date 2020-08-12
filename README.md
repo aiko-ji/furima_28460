@@ -64,7 +64,7 @@
 
 ### Association
 
-- has_to :purchase
+- has_one :purchase
 
 ## comments テーブル
 
