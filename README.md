@@ -16,7 +16,7 @@
 ### Association
 - has_many : purchase
 - has_one :product
-
+- has_one :user_address
 
 ## product テーブル
 
