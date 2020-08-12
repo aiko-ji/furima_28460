@@ -12,11 +12,12 @@
 | birthday             | date   | null: false, foreign_key: true |
 | phonetic_first_name  | string | null: false, foreign_key: true |
 | phonetic_last_name   | string | null: false, foreign_key: true | 
-| address              | string | null: false, foreign_key: true |
 
 ### Association
 - has_many : purchase
 - has_one :product
+- has_one :users
+- has_one :user_address
 
 ## product テーブル
 
@@ -49,22 +50,24 @@
 - belongs_to:product
 - has_one :user_address
 - belongs_to :users
+- belongs_to :purchase
 
 ## user_address テーブル
 
 | Column              | Type   | Options                                 |
 | ------------------- | ------ | --------------------------------------- |
 | postal code         | string | null: false                             |
-| municipalities      | string | null: false                             |
+| municipalities      | string | null: false                             |
 | building_number     | string |                                         |
 | prefecture          | string | null: false                             |
-| user_id             | string | integer :user_id, foreign_key: true     |
-| product_id          | string | integer :product_id, foreign_key: true  |
-
+| user_id             | intger | null: false foreign_key:                |
+| product_id          | intger | null: false, foreign_key:               | 
+ 
 
 ### Association
 
-- has_one :purchase
+- has_one :user_address
+- belongs_to :purchase
 
 ## comments テーブル
 
