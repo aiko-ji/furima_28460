@@ -40,10 +40,10 @@
 
 ## purchase テーブル
 
-| Column              | Type       | Options                                |
-| ------------------- | ---------- | -------------------------------------- |
-| user_id             | references | integer :user_id, foreign_key: true    |
-| product_id          | references | integer :product_id, foreign_key: true | 
+| Column              | Type   | Options                       |
+| ------------------- | -------| ------------------------------|
+| user_id             | intger | null: false, foreign_key: true|
+| product_id          | intger | null: false, foreign_key: true| 
 
 
 ### Association
@@ -60,8 +60,8 @@
 | municipalities      | string | null: false                             |
 | building_number     | string |                                         |
 | prefecture          | string | null: false                             |
-| user_id             | intger | null: false foreign_key:                |
-| product_id          | intger | null: false, foreign_key:               | 
+| user_id             | intger | null: false, foreign_key: true          |
+| product_id          | intger | null: false, foreign_key: true           | 
  
 
 ### Association
