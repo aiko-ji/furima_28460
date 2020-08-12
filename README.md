@@ -16,23 +16,22 @@
 ### Association
 - has_many : purchase
 - has_one :product
-- has_one :users
-- has_one :user_address
+
 
 ## product テーブル
 
-| Column              | Type        | Options                           |
-| ------------------- | ----------- | --------------------------------- |
-| name                | string      | null: false                       |
-| category            | string      | null: false                       |
-| commodity_condition | string      | null: false                       |
-| price               | integer     | null: false                       |
-| exhibitor           | string      | null: false                       |
-| description         | text        | null: false                       |
-| user_id             | integer     | null: false, foreign_key: true    |
-| shipping charges    | string      | null: false                       |
-| area of delivery    | string      | null: false                       |
-| days until delivery | string      | null: false                       |
+| Column                    | Type        | Options                           |
+| ------------------------- | ----------- | --------------------------------- |
+| name                      | string      | null: false                       |
+| category_id               | integer     | null: false                       |
+| commodity_condition_id    | integer     | null: false                       |
+| price                     | integer     | null: false                       |
+| exhibitor                 | string      | null: false                       |
+| description               | text        | null: false                       |
+| user_id                   | integer     | null: false, foreign_key: true    |
+| shipping_charges_id       | integer     | null: false                       |
+| area_of_delivery_id       | integer     | null: false                       |
+| days_until_delivery_id    | integer     | null: false                       |
 
 ### Association
 - belongs_to :purchase
@@ -40,39 +39,36 @@
 
 ## purchase テーブル
 
-| Column              | Type   | Options                       |
-| ------------------- | -------| ------------------------------|
-| user_id             | intger | null: false, foreign_key: true|
-| product_id          | intger | null: false, foreign_key: true| 
+| Column              | Type    | Options                        |
+| ------------------- | --------| ------------------------------ |
+| user_id             | integer | null: false, foreign_key: true |
+| product_id          | integer | null: false, foreign_key: true | 
 
 
 ### Association
-- belongs_to:product
-- has_one :user_address
+- belongs_to :product
 - belongs_to :users
-- belongs_to :purchase
 
 ## user_address テーブル
 
-| Column              | Type   | Options                                 |
-| ------------------- | ------ | --------------------------------------- |
-| postal code         | string | null: false                             |
-| municipalities      | string | null: false                             |
-| building_number     | string |                                         |
-| prefecture          | string | null: false                             |
-| user_id             | intger | null: false, foreign_key: true          |
-| product_id          | intger | null: false, foreign_key: true           | 
- 
+| Column              | Type     | Options                        |
+| ------------------- | -------- | ------------------------------ |
+| postal code         | string   | null: false                    |
+| municipalities      | string   | null: false                    |
+| building_number     | string   |                                |
+| prefecture          | string   | null: false                    |
+| user_id             | integer  | null: false, foreign_key: true |
+| product_id          | integer  | null: false, foreign_key: true | 
+| purchase_id         | integer  | null: false, foreign_key: true |
 
 ### Association
 
-- has_one :user_address
 - belongs_to :purchase
 
 ## comments テーブル
 
 | Column          | Type       | Options                        |
-| ----------------| ---------- | ------------------------------ |
+| --------------- | ---------- | ------------------------------ |
 | user            | references | null: false, foreign_key: true |
 | product         | references | null: false, foreign_key: true |
 | purchase        | references | null: false, foreign_key: true |
@@ -82,6 +78,6 @@
 ##  messages テーブル
 
 | Column           | Type       | Options                        |
-| -----------------| ---------- | ------------------------------ |
+| ---------------- | ---------- | ------------------------------ |
 | user             | references | null: false, foreign_key: true |
 | text             | references | null: false, foreign_key: true |
