@@ -13,6 +13,7 @@ class CreateProducts < ActiveRecord::Migration[6.0]
       t.integer :area_of_delivery_id,    null: false
       t.integer :days_until_delivery_id, null: false
 
+      
       t.timestamps
     end
   end
