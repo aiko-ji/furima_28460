@@ -17,7 +17,7 @@ describe User do
     end
 
     it "nicknameは必須なので空だと登録できない" do
-      @user.nickname = "/////"
+      @user.nickname = ""
       @user.valid?
       expect(@user.errors.full_messages).to include("Nickname 空欄では登録できません。")
     end
