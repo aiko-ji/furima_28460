@@ -4,18 +4,18 @@ class Product < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-
-  validates :name
-  validates :category_id
-  validates :commodity_condition_id
-  validates :price
-  validates :exhibitor
-  validates :description
-  validates :user_id
-  validates :shipping_charges_id
-  validates :area_of_delivery_id
-  validates :days_until_delivery_id
-
+   with_options presence: true do
+      validates :name
+      validates :category_id
+      validates :commodity_condition_id
+      validates :price
+      validates :exhibitor
+      validates :description
+      validates :user_id
+      validates :shipping_charges_id
+      validates :area_of_delivery_id
+      validates :days_until_delivery_id
+   end
 
 
 end
