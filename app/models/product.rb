@@ -15,5 +15,6 @@ class Product < ApplicationRecord
       validates :days_until_delivery_id
    end
 
-
+      validates :price, numericality: { greater_than_or_equal_to: 300,less_than: 9999999}
+      
 end

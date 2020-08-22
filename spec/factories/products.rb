@@ -1,14 +1,15 @@
 FactoryBot.define do
   factory :product do
    name                    {"商品名"}
-   category_id             {"カテゴリー"}
-   commodity_condition_id  {"商品状態"}
-   price                   {"価格"}
+   category_id             {0}
+   commodity_condition_id  {0}
+   price                   {300}
    exhibitor               {"出品者"}
    description             {"解説"}
-   user_id                 {id}
-   shipping_charges_id     {"配達料"}
-   area_of_delivery_id     {"配達地域"}
-   days_until_delivery_id  {"日数"}
+   user_id                 {0}
+   shipping_charges_id     {0}
+   area_of_delivery_id     {0}
+   days_until_delivery_id  {0}
+
   end
 end
