@@ -1,13 +1,13 @@
 class Product < ApplicationRecord
 
       has_one_attached :image
+      belongs_to :user
 
    with_options presence: true do
       validates :name
       validates :category_id
       validates :commodity_condition_id
       validates :price
-      validates :exhibitor
       validates :description
       validates :user_id
       validates :shipping_charges_id
