@@ -8,7 +8,6 @@ class Product < ApplicationRecord
       validates :category_id
       validates :commodity_condition_id
       validates :price
-      # validates :exhibitor
       validates :description
       validates :user_id
       validates :shipping_charges_id
