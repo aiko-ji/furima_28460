@@ -122,6 +122,7 @@
 
   <%# 商品一覧 %>
   <div class='item-contents'>
+   <% @products.each do |product| %>
     <h2 class='title'>ピックアップカテゴリー</h2>
     <%= link_to '新規投稿商品', "#", class: "subtitle" %>
     <ul class='item-lists'>
@@ -130,7 +131,7 @@
       <li class='list'>
         <%= link_to "#" do %>
         <div class='item-img-content'>
-          <%= image_tag "item-sample.png", class: "item-img" %>
+           <%= image_tag product.image, class: "item-img" %>
 
           <%# 商品が売れていればsold outの表示 %>
           <div class='sold-out'>
@@ -141,10 +142,10 @@
         </div>
         <div class='item-info'>
           <h3 class='item-name'>
-            <%= "商品名" %>
+            <%= product.name %>
           </h3>
           <div class='item-price'>
-            <span><%= "販売価格" %>円<br>(税込み)</span>
+            <span><%= product.price %>円<br>(税込み)</span>
             <div class='star-btn'>
               <%= image_tag "star.png", class:"star-icon" %>
               <span class='star-count'>0</span>
@@ -152,6 +153,7 @@
           </div>
         </div>
         <% end %>
+   <% end %>
       </li>
       <%# //商品のインスタンス変数になにか入っている場合、中身のすべてを展開できるようにしましょう %>
 
@@ -181,8 +183,9 @@
   <%# //商品一覧 %>
 </div>
 <div class='purchase-btn'>
-  <span class='purchase-btn-text'>出品する</span>
-  <%= link_to new_product_path %>
-    <%= image_tag 'camera.png' , size: '185x50' ,class: "purchase-btn-icon" %>
+    <span class='purchase-btn-text'>出品する</span> 
+    <%= link_to new_product_path  do%>
+      <%= image_tag 'camera.png' , size: '185x50' ,class: "purchase-btn-icon" %>
+    <% end %>
 </div>
 <%= render "shared/footer" %>
