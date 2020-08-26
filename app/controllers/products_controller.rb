@@ -23,6 +23,16 @@ class ProductsController < ApplicationController
     @product = Product.find(params[:id])
   end
 
+  def edit 
+    @product = Product.find(params[:id])
+  end
+
+  def update
+    @product = Product.find(params[:id])
+    @product.update(product_params)
+  end
+
+
   def product_params
     params.require(:product).permit(:content, :image, :name, :category_id, :condition_id, :price, :description, :shipping_id, :delivery_id, :day_id,).merge(user_id: current_user.id)
   end
