@@ -2,7 +2,6 @@ class ProductsController < ApplicationController
   before_action :authenticate_user!, except: [:show, :index]
 
   def new 
-    #binding.pry
     @product = Product.new
   end
 
@@ -22,8 +21,6 @@ class ProductsController < ApplicationController
 
   def show
     @product = Product.find(params[:id])
-    # @product = Product.find(params[:category_id])
-    #binding.pry
   end
 
   def product_params
