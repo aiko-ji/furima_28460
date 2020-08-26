@@ -24,14 +24,14 @@
 | ------------------------- | ----------- | --------------------------------- |
 | name                      | string      | null: false                       |
 | category_id               | integer     | null: false                       |
-| commodity_condition_id    | integer     | null: false                       |
+| condition_id              | integer     | null: false                       |
 | price                     | integer     | null: false                       |
 | exhibitor                 | string      | null: false                       |
 | description               | text        | null: false                       |
 | user_id                   | integer     | null: false, foreign_key: true    |
-| shipping_charges_id       | integer     | null: false                       |
-| area_of_delivery_id       | integer     | null: false                       |
-| days_until_delivery_id    | integer     | null: false                       |
+| shipping_id               | integer     | null: false                       |
+| delivery_id               | integer     | null: false                       |
+| days_id                   | integer     | null: false                       |
 
 ### Association
 - belongs_to :purchase

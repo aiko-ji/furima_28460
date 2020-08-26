@@ -1,7 +1,7 @@
 class ProductsController < ApplicationController
+  before_action :authenticate_user!, except: [:show, :index]
 
   def new 
-    #binding.pry
     @product = Product.new
   end
 
@@ -19,10 +19,12 @@ class ProductsController < ApplicationController
     end
   end
 
-
+  def show
+    @product = Product.find(params[:id])
+  end
 
   def product_params
-    params.require(:product).permit(:content, :image, :name, :category_id, :commodity_condition_id, :price, :description, :shipping_charges_id, :area_of_delivery_id, :days_until_delivery_id,).merge(user_id: current_user.id)
+    params.require(:product).permit(:content, :image, :name, :category_id, :condition_id, :price, :description, :shipping_id, :delivery_id, :day_id,).merge(user_id: current_user.id)
   end
 
 end
