@@ -18,7 +18,7 @@ RSpec.describe Product, type: :model do
        expect(@product.errors.full_messages).to include("Category can't be blank")
       end
 
-      it "commodity_condition_idは必須なので空だと登録できない" do
+      it "condition_idは必須なので空だと登録できない" do
         @product. commodity_condition_id= ""
         @product.valid?
         expect(@product.errors.full_messages).to include("Commodity condition can't be blank")
@@ -48,19 +48,19 @@ RSpec.describe Product, type: :model do
         expect(@product.errors.full_messages).to include("User can't be blank")
       end
 
-      it "shipping_charges_idは必須なので空だと登録できない" do
+      it "shipping_idは必須なので空だと登録できない" do
         @product. shipping_charges_id= ""
         @product.valid?
         expect(@product.errors.full_messages).to include("Shipping charges can't be blank")
       end
 
-      it "area_of_delivery_idは必須なので空だと登録できない" do
+      it "delivery_idは必須なので空だと登録できない" do
         @product. area_of_delivery_id= ""
         @product.valid?
         expect(@product.errors.full_messages).to include("Area of delivery can't be blank")
       end
 
-      it "days_until_delivery_idは必須なので空だと登録できない" do
+      it "days_idは必須なので空だと登録できない" do
         @product. days_until_delivery_id= ""
         @product.valid?
         expect(@product.errors.full_messages).to include("Days until delivery can't be blank")
