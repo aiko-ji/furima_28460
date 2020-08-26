@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   root to: "products#index"
   
   resources :users, only: [:new, :index, :create, :edit]
-  resources :products, only: [:new, :index, :edit, :create]
+  resources :products
 end
 
 
