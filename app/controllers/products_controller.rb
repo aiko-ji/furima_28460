@@ -12,7 +12,6 @@ class ProductsController < ApplicationController
 
   def create
     @product = Product.new(product_params)
-    binding.pry
     if @product.valid?
        @product.save!
       redirect_to root_path 
@@ -37,8 +36,11 @@ class ProductsController < ApplicationController
 
   def destroy
     @product = Product.find(params[:id])
-    @product.destroy
-    redirect_to root_path 
+    if @product.destroy
+       redirect_to root_path 
+     else
+      render :show
+    end
   end
 
   def set_product
