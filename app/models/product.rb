@@ -9,19 +9,20 @@ class Product < ApplicationRecord
       belongs_to_active_hash :delivery
       belongs_to_active_hash :day
 
-
+# IDが０番目の奴はバリデーションをかけて保存させないようにする
    with_options presence: true do
       validates :name
-      validates :category_id
-      validates :condition_id
       validates :price
       validates :description
       validates :user_id
-      validates :shipping_id
-      validates :delivery_id
-      validates :day_id
    end
 
+      validates :category_id,  exclusion: { in: [0] }
+      validates :condition_id, exclusion: { in: [0] }
+      validates :shipping_id,  exclusion: { in: [0] }
+      validates :delivery_id,  exclusion: { in: [0] }
+      validates :day_id,       exclusion: { in: [0] }
+   
       validates :price, numericality: { greater_than_or_equal_to: 300,less_than: 9999999}
       
 end
