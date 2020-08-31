@@ -5,6 +5,7 @@ class PurchaseForm
   validates :token,              presence: true
   validates :authenticity_token, presence: true
   validates :product_id,         presence: true
+  validates :user_id,            presence: true
   validates :postal_code,        presence: true
   validates :municipalities,     presence: true
   validates :delivery_id,        presence: true

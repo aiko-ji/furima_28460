@@ -1,15 +1,14 @@
 FactoryBot.define do
   factory :product do
+   association :user
    name         {"商品名"}
-   category_id  {0}
-   condition_id {0}
+   category_id  {1}
+   condition_id {1}
    price        {300}
-   exhibitor    {"出品者"}
    description  {"解説"}
-   user_id      {0}
-   shipping_id  {0}
-   delivery_id  {0}
-   days_id      {0}
+   shipping_id  {1}
+   delivery_id  {1}
+   day_id       {1}
 
   end
 end
