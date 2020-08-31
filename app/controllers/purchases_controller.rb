@@ -21,7 +21,7 @@ class PurchasesController < ApplicationController
   private
 
   def set_params
-    params.permit(:token, :authenticity_token, :product_id, :postal_code, :municipalities, :building_number, :delivery_id, :purchase_id, :phone_number, :house_number).merge(user_id: current_user.id)
+    params.permit(:token, :product_id, :postal_code, :municipalities, :building_number, :delivery_id, :purchase_id, :phone_number, :house_number).merge(user_id: current_user.id)
   end
 
   def set_product
