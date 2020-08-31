@@ -8,6 +8,13 @@ RSpec.describe PurchaseForm, type: :model do
       @purchase= FactoryBot.build(:purchase_form,user_id: @another_user.id,product_id: @product.id)
     end
 
+    context '商品購入の入力がうまくいくとき' do
+      it "全ての項目が埋まっていれば登録できる" do
+        expect(@purchase.valid?).to eq true
+      end
+    end
+
+
     it "postal_codeは必須なのでありハイフンが無いと登録できない" do
       @purchase.postal_code = 1234567
       @purchase.valid?
