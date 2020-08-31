@@ -1,15 +1,12 @@
 class PurchasesController < ApplicationController
   before_action :set_product, only: [:index, :create]
   def index
-    #binding.pry
     @purchase = Purchase.new
   end
 
   def create
-    #binding.pry
     @purchase = PurchaseForm.new(set_params)
     if @purchase.valid?
-       #@purchase.save
        pay_product
        @purchase.save
        return redirect_to root_path

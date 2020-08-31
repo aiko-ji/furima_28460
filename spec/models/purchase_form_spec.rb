@@ -3,8 +3,6 @@ require 'rails_helper'
 RSpec.describe PurchaseForm, type: :model do
   describe '商品購入情報' do
     before do
-      # @user = FactoryBot.create(:user)
-      # binding.pry
       @another_user = FactoryBot.create(:user, email: "furima@co.jp")
       @product = FactoryBot.create(:product)
       @purchase= FactoryBot.build(:purchase_form,user_id: @another_user.id,product_id: @product.id)
