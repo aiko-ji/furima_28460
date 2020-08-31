@@ -34,7 +34,7 @@
 | days_id                   | integer     | null: false                       |
 
 ### Association
-- belongs_to :purchase
+- has_one :purchase
 
 
 ## purchase テーブル
