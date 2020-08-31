@@ -3,9 +3,12 @@ require 'rails_helper'
 RSpec.describe Purchase, type: :model do
   describe '商品購入情報' do
     before do
-      # @user = FactoryBot.build(:user)
-      # @product = FactoryBot.build(:product)
-      @purchase= FactoryBot.build(:purchase)
+      # @user = FactoryBot.create(:user)
+      # binding.pry
+      @another_user = FactoryBot.create(:user, email: "furima@co.jp")
+      @product = FactoryBot.create(:product)
+      @address = FactoryBot.create(:address,postal_code: postal_code, delivery_id: delivery_id, municipalities: municipalities, house_numbe: house_numbe,phone_number: phone_number, token: token)
+      @purchase= FactoryBot.build(:purchase,user_id: @another_user.id,product_id: @product.id)
     end
 
     it "postal_codeは必須なのでありハイフンが無いと登録できない" do
@@ -35,7 +38,7 @@ RSpec.describe Purchase, type: :model do
      it "phone_numberはハイフンは不要で11桁以内出ないと登録できない" do
       @purchase.phone_number = "123456-123456"
       @purchase.valid?
-      expect(@purchase.errors.full_messages).to include("Phone_number can't be blank")
+      expect(@purchase.errors.full_messages).to include("Phone number can't be blank")
      end
 
      it "token情報は必須なので空だと登録できない" do
@@ -46,14 +49,16 @@ RSpec.describe Purchase, type: :model do
 
      it "user_idは必須です" do
       @purchase.user_id = ""
+      another_user = FactoryBot.build(:user)
+      another_user.email = "asc12"
       @purchase.valid?
-      expect(@purchase.errors.full_messages).to include("User id can't be blank")
+      expect(@purchase.errors.full_messages).to include("User can't be blank")
      end
 
      it "product_idは必須です" do
       @purchase.product_id = ""
       @purchase.valid?
-      expect(@purchase.errors.full_messages).to include("Product id can't be blank")
+      expect(@purchase.errors.full_messages).to include("Product can't be blank")
      end
   end
 end
