@@ -1,8 +1,15 @@
 class PurchasesController < ApplicationController
   before_action :set_product, only: [:index, :create]
+  before_action :soldout_product, only: [:index]
+  before_action :authenticate_user!, only: [:index]
+  before_action :product_user, only: [:index]
 
   def index
     @purchase = Purchase.new
+    # if user_signed_in? && current_user.id == @purchases_product.id
+    #  else
+    #   redirect_to index
+    # end
   end
 
   def create
@@ -40,4 +47,15 @@ class PurchasesController < ApplicationController
     )
   end
 
+  def soldout_product
+    if  current_user.id == @purchases_product.id
+     redirect_to index
+    end
+  end
+
+  def product_user
+    if current_user.id == @product_user.id
+      redirect_to index
+    end
+  end
 end
