@@ -14,7 +14,6 @@ RSpec.describe PurchaseForm, type: :model do
       end
     end
 
-
     it "postal_codeは必須なのでありハイフンが無いと登録できない" do
       @purchase.postal_code = 1234567
       @purchase.valid?
