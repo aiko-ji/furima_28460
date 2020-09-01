@@ -11,7 +11,7 @@ class User < ApplicationRecord
     validates :password, format: { with: /\A[a-zA-Z0-9]+\z/, message: "空では登録できません。確認入力も行ってください。"}
 
     with_options presence: true do
-      validates :nickname, format: { with: /\A[a-zA-Z0-9]+\z/, message:"空欄では登録できません。"}
+      validates :nickname
       validates :birthday
     end
   

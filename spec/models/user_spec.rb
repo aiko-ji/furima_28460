@@ -19,7 +19,7 @@ describe User do
     it "nicknameは必須なので空だと登録できない" do
       @user.nickname = ""
       @user.valid?
-      expect(@user.errors.full_messages).to include("Nickname 空欄では登録できません。")
+      expect(@user.errors.full_messages).to include("Nickname can't be blank")
     end
 
     it "passwordは６文字以上、半角英数混合、２回入力しないと登録できない" do
@@ -43,7 +43,7 @@ describe User do
     it "birthdayは必須なので空だと登録できない" do
       @user.birthday = "&&&&"
       @user.valid?
-      expect(@user.errors.full_messages).to include("Birthday 空欄では登録できません。")
+      expect(@user.errors.full_messages).to include("Birthday can't be blank")
     end
 
     it "phonetic_frist_nameは全角（カタカナ）出ないと登録できない" do
