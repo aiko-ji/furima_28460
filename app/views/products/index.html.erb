@@ -131,8 +131,9 @@
       <li class='list'>
         <%= link_to product_path(product) do %>
         <div class='item-img-content'>
+        <% if product.image.attached? %>
            <%= image_tag product.image, class: "item-img"%>
-
+        <% end %>
           <%# 商品が売れていればsold outの表示 %>
           <div class='sold-out'>
           <% if product.purchase %>
