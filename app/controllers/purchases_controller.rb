@@ -1,5 +1,6 @@
 class PurchasesController < ApplicationController
   before_action :set_product, only: [:index, :create]
+  
   def index
     @purchase = Purchase.new
   end
