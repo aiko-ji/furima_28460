@@ -48,14 +48,14 @@ class PurchasesController < ApplicationController
   end
 
   def soldout_product
-    if  current_user.id == @purchases_product.id
-     redirect_to index
+    if @product.purchase.present?
+     redirect_to root_path
     end
   end
 
   def product_user
-    if current_user.id == @product_user.id
-      redirect_to index
+    if current_user.id == @product.user.id
+      redirect_to root_path
     end
   end
 end
