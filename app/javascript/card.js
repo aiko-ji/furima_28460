@@ -31,10 +31,9 @@
         document.getElementById("charge-form").submit();
         document.getElementById("charge-form").reset();
       } else {
-
+        document.querySelector('input[name="commit"]').disabled = false;
       }
     });
   });
 };
-
 window.addEventListener("load", pay);

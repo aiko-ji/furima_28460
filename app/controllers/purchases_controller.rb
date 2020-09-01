@@ -18,8 +18,8 @@ class PurchasesController < ApplicationController
        pay_product
        @purchase.save
        return redirect_to root_path
-     else
-       render 'index'
+    else
+       render :index
     end
   end
 
