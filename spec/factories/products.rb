@@ -9,6 +9,5 @@ FactoryBot.define do
    shipping_id  {1}
    delivery_id  {1}
    day_id       {1}
-
   end
 end

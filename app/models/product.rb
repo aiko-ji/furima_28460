@@ -17,6 +17,7 @@ class Product < ApplicationRecord
       validates :price
       validates :description
       validates :user_id
+      validates :image
    end
 
       validates :category_id,  numericality: { other_than: 0, message: "項目をお選び下さい" }

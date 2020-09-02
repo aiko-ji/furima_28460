@@ -5,7 +5,12 @@ RSpec.describe Product, type: :model do
     before do
       @user = FactoryBot.create(:user)
       @product = FactoryBot.build(:product,user_id: @user.id)
+      @product.image = fixture_file_upload("spec/image/IMG_0576.jpg")
     end
+
+      it 'is valid with an image' do
+        expect(@product).to be_valid
+      end
 
       it "nameは必須なので空だと登録できない" do
        @product.name = ""
